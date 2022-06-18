@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"embed"
 	"encoding/json"
+	"flag"
 	"fmt"
 	"github.com/tidwall/gjson"
 	"io/ioutil"
@@ -20,6 +21,12 @@ type QL struct {
 }
 
 func main() {
+	var login string
+	var pat string
+	flag.StringVar(&login, "u", "", "GitHub ID")
+	flag.StringVar(&pat, "p", "", "Personal Access Token")
+	flag.Parse()
+
 	client := &http.Client{}
 	url := "https://api.github.com/graphql"
 
@@ -33,7 +40,7 @@ func main() {
 	for {
 		var b bytes.Buffer
 		err = tpl.Execute(&b, map[string]interface{}{
-			"Login": "JieDing",
+			"Login": login,
 			"After": after,
 		})
 		if err != nil {
@@ -53,7 +60,7 @@ func main() {
 			log.Fatal(err)
 		}
 
-		req.Header.Add("Authorization", "Bearer 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")
+		req.Header.Add("Authorization", "Bearer "+pat)
 
 		rep, err := client.Do(req)
 		if err != nil {
@@ -74,42 +81,5 @@ func main() {
 			break
 		}
 	}
-	//after: "Y3Vyc29yOnYyOpK5MjAyMi0wMi0wOVQxMDoyOToxNiswODowMM4FVwgv"
-	/*err = tpl.Execute(&b, map[string]interface{}{
-		"Login": "JieDing",
-		"After": "",
-	})
-	if err != nil {
-		log.Fatal(err)
-	}
 
-	ql := QL{
-		Query: b.String(),
-	}
-	//bytes.new
-	byteArr, err := json.Marshal(&ql)
-	//fmt.Println(string(byteArr))
-	if err != nil {
-		log.Fatal(err)
-	}
-	reader := bytes.NewReader(byteArr)
-	req, err := http.NewRequest("POST", url, reader)
-	if err != nil {
-		log.Fatal(err)
-	}
-
-	req.Header.Add("Authorization", "Bearer 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")
-
-	rep, err := client.Do(req)
-	if err != nil {
-		log.Fatal(err)
-	}
-	data, err := ioutil.ReadAll(rep.Body)
-	rep.Body.Close()
-	if err != nil {
-		log.Fatal(err)
-	}
-	ret := gjson.GetBytes(data, "data.user.followers")
-	fmt.Println(ret.Get("pageInfo.hasNextPage"))*/
-	//log.Printf("%s", data)
 }
