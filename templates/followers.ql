@@ -18,7 +18,8 @@ query {
           }) {
               totalCount
               nodes {
-                  stargazerCount
+                forkCount
+                stargazerCount
               }
         	}
         	followers {
