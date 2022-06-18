@@ -82,6 +82,7 @@ func calculateRepoCredit(repos gjson.Result) float64 {
 func main() {
 	var login string
 	var pat string
+	var followersConut int64
 	flag.StringVar(&login, "u", "", "GitHub ID")
 	flag.StringVar(&pat, "p", "", "Personal Access Token")
 	flag.Parse()
@@ -128,13 +129,14 @@ func main() {
 			log.Fatal(err)
 		}
 		data, err := ioutil.ReadAll(rep.Body)
-		rep.Body.Close()
+		err = rep.Body.Close()
 		if err != nil {
 			log.Fatal(err)
 		}
 		ret := gjson.GetBytes(data, "data.user.followers")
 		pageInfo := ret.Get("pageInfo")
 		followers := ret.Get("nodes")
+		followersConut = ret.Get("totalCount").Int()
 		for _, f := range followers.Array() {
 			follower := Follower{
 				Login:          f.Get("login").String(),
