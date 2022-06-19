@@ -26,7 +26,7 @@ jobs:
       run: go run ./followers.go -u ${{ github.repository_owner }} -p ${{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
 
     - name: Commit changes
-        run: |
+      run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           git add -A
