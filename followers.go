@@ -96,7 +96,7 @@ func main() {
 	flag.StringVar(&pat, "p", "", "Personal Access Token")
 	flag.StringVar(&readme, "f", "", "ReadMe file")
 	flag.Parse()
-
+	//a
 	fArr := FollowerArr{}
 
 	client := &http.Client{}
