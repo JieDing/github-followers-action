@@ -88,6 +88,7 @@ func min(x, y int64) int64 {
 }
 
 func main() {
+	fmt.Println("Hi there")
 	var login string
 	var pat string
 	var readme string
