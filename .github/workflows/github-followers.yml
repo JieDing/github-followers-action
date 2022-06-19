@@ -3,8 +3,6 @@ name: Go
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
 
 jobs:
 
@@ -22,4 +20,5 @@ jobs:
       run: go mod tidy
 
     - name: Run
-      run: go run . -u ${{ github.repository_owner }} -p {{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
+      run: |
+        echo "abc"
