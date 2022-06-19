@@ -3,6 +3,8 @@ name: Go
 on:
   push:
     branches: [ "main" ]
+  schedule:
+    - cron: '0 43 22 * * *'
 
 jobs:
 
