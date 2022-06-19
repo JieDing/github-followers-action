@@ -90,9 +90,11 @@ func min(x, y int64) int64 {
 func main() {
 	var login string
 	var pat string
-	var followersConut int64
+	var readme string
+	var followersCount int64
 	flag.StringVar(&login, "u", "", "GitHub ID")
 	flag.StringVar(&pat, "p", "", "Personal Access Token")
+	flag.StringVar(&readme, "f", "", "ReadMe file")
 	flag.Parse()
 
 	fArr := FollowerArr{}
@@ -145,7 +147,7 @@ func main() {
 		ret := gjson.GetBytes(data, "data.user.followers")
 		pageInfo := ret.Get("pageInfo")
 		followers := ret.Get("nodes")
-		followersConut = ret.Get("totalCount").Int()
+		followersCount = ret.Get("totalCount").Int()
 		for _, f := range followers.Array() {
 			follower := Follower{
 				Login:          f.Get("login").String(),
@@ -173,7 +175,7 @@ func main() {
 
 	sort.Sort(sort.Reverse(fArr))
 
-	var rangeCount = min(18, followersConut)
+	var rangeCount = min(18, followersCount)
 	sTemp := strconv.FormatInt(rangeCount, 10)
 	rangeInt, _ := strconv.Atoi(sTemp)
 	html := "<table>\n"
@@ -206,12 +208,15 @@ func main() {
 	}
 	html += "  </tr>\n</table>"
 	//fmt.Println(html)
-	str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
+	arr, err := ioutil.ReadFile(readme)
+	//str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
+	str := string(arr)
 	reg, err := regexp2.Compile("(?<=<!--START_SECTION:top-followers-->)[\\s\\S]*(?=<!--END_SECTION:top-followers-->)", 0)
 	if err != nil {
 		log.Fatal(err)
 	}
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
+	ioutil.WriteFile(readme, []byte(str), 0666)
 	fmt.Println(str)
 }
