@@ -25,7 +25,15 @@ jobs:
     - name: update README
       run: go run ./followers.go -u ${{ github.repository_owner }} -p ${{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
 
-    - name: update README
-      run: |
-        git status
-        git diff-index --quiet HEAD
+    - name: Commit changes
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add -A
+          git diff-index --quiet HEAD || git commit -m "Update top followers"
+    - name: Pull changes
+      run: git pull -r
+    - name: Push changes
+      uses: ad-m/github-push-action@b007e7b818e33b04afd056e4c4b57ba917145d7a
+      with:
+        github_token: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
