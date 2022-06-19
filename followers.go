@@ -182,7 +182,7 @@ func main() {
 	html := "<table>\n"
 	for i := 0; i < rangeInt; i++ {
 		//fmt.Println(fArr[i])
-		if i%6 == 0 {
+		if i%2 == 0 {
 			if i != 0 {
 				html += "  </tr>\n"
 			}
