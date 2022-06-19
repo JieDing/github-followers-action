@@ -6,11 +6,13 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/dlclark/regexp2"
 	"github.com/tidwall/gjson"
 	"io/ioutil"
 	"log"
 	"net/http"
 	"sort"
+	"strconv"
 	"text/template"
 )
 
@@ -78,6 +80,12 @@ func calculateRepoCredit(repos gjson.Result) float64 {
 	}
 	return totalCredits
 }
+func min(x, y int64) int64 {
+	if x < y {
+		return x
+	}
+	return y
+}
 
 func main() {
 	var login string
@@ -93,6 +101,7 @@ func main() {
 	url := "https://api.github.com/graphql"
 
 	tpl, err := template.ParseFS(fs, "templates/followers.ql")
+	htmlTPL, err := template.ParseFS(fs, "templates/table.tpl")
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -143,9 +152,9 @@ func main() {
 				Name:           f.Get("name").String(),
 				DatabaseID:     f.Get("databaseId").String(),
 				FollowingCount: f.Get("following.totalCount").Float() * 0.1,
-				FollowerCount:  f.Get("followers.totalCount").Float() * 0.35,
-				Contributions:  f.Get("contributionsCollection.contributionCalendar.totalContributions").Float() * 0.2,
-				RepoCredit:     calculateRepoCredit(f.Get("repositories.nodes")) * 0.35,
+				FollowerCount:  f.Get("followers.totalCount").Float() * 0.3,
+				Contributions:  f.Get("contributionsCollection.contributionCalendar.totalContributions").Float() * 0.3,
+				RepoCredit:     calculateRepoCredit(f.Get("repositories.nodes")) * 0.3,
 			}
 			follower.setTotalCredit()
 			fArr = append(fArr, follower)
@@ -163,8 +172,46 @@ func main() {
 	}
 
 	sort.Sort(sort.Reverse(fArr))
-	for _, ff := range fArr {
-		fmt.Println(ff)
+
+	var rangeCount = min(18, followersConut)
+	sTemp := strconv.FormatInt(rangeCount, 10)
+	rangeInt, _ := strconv.Atoi(sTemp)
+	html := "<table>\n"
+	for i := 0; i < rangeInt; i++ {
+		//fmt.Println(fArr[i])
+		if i%2 == 0 {
+			if i != 0 {
+				html += "  </tr>\n"
+			}
+			html += "  <tr>\n"
+		}
+		var bf bytes.Buffer
+		var name string
+		if fArr[i].Name != "" {
+			name = fArr[i].Name
+		} else {
+			name = fArr[i].Login
+		}
+
+		err = htmlTPL.Execute(&bf, map[string]interface{}{
+			"login": fArr[i].Login,
+			"id":    fArr[i].DatabaseID,
+			"name":  name,
+		})
+		if err != nil {
+			log.Fatal(err)
+		}
+		html += bf.String()
+		//fmt.Println(bf.String())
+	}
+	html += "  </tr>\n</table>"
+	//fmt.Println(html)
+	str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
+	reg, err := regexp2.Compile("(?<=<!--START_SECTION:top-followers-->)[\\s\\S]*(?=<!--END_SECTION:top-followers-->)", 0)
+	if err != nil {
+		log.Fatal(err)
 	}
 
+	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
+	fmt.Println(str)
 }
