@@ -22,4 +22,4 @@ jobs:
     - name: Run
       run: |
         echo "execute go program"
-        go run ./followers.go -u ${{ github.repository_owner }} -p {{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
+        go run ./followers.go -u ${{ github.repository_owner }} -p ${{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md

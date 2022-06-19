@@ -160,7 +160,7 @@ func main() {
 			}
 			follower.setTotalCredit()
 			fArr = append(fArr, follower)
-			fmt.Println(follower)
+			//fmt.Println(follower)
 			//fmt.Println(len(fArr))
 		}
 		//fmt.Println(len(fArr))
@@ -219,5 +219,5 @@ func main() {
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
 	ioutil.WriteFile(readme, []byte(str), 0666)
-	//fmt.Println(str)
+	fmt.Println(str)
 }
