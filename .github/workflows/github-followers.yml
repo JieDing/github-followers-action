@@ -1,8 +1,11 @@
 name: Go
 
 on:
+  push:
+    branches:
+      - main
   schedule:
-    - cron: '51 14 * * *'
+    - cron: '59 22 * * *'
 
 jobs:
 
@@ -19,7 +22,10 @@ jobs:
     - name: Manage dependency
       run: go mod tidy
 
-    - name: Run
+    - name: update README
+      run: go run ./followers.go -u ${{ github.repository_owner }} -p ${{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
+
+    - name: update README
       run: |
-        echo "execute go program"
-        go run ./followers.go -u ${{ github.repository_owner }} -p ${{ secrets.PERSONAL_ACCESS_TOKEN }} -f README.md
+        git status
+        git diff-index --quiet HEAD
