@@ -176,13 +176,13 @@ func main() {
 
 	sort.Sort(sort.Reverse(fArr))
 
-	var rangeCount = min(18, followersCount)
+	var rangeCount = min(21, followersCount)
 	sTemp := strconv.FormatInt(rangeCount, 10)
 	rangeInt, _ := strconv.Atoi(sTemp)
 	html := "<table>\n"
 	for i := 0; i < rangeInt; i++ {
 		//fmt.Println(fArr[i])
-		if i%2 == 0 {
+		if i%7 == 0 {
 			if i != 0 {
 				html += "  </tr>\n"
 			}
