@@ -9,4 +9,6 @@ jobs:
         id: hello
         uses: JieDing/github-followers@main
         env:
-          login: 'JieDing'
+          login: ${{ github.repository_owner }}
+          pat: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+          readme: 'README.md'

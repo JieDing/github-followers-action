@@ -4,7 +4,6 @@ import (
 	"bytes"
 	"embed"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"github.com/dlclark/regexp2"
 	"github.com/tidwall/gjson"
@@ -93,18 +92,23 @@ func main() {
 	var pat string
 	var readme string
 	var followersCount int64
-	fmt.Println("!!!!!!!!!!!!!!!!!!!!!!")
 	login, existed := os.LookupEnv("login")
 	if !existed {
 		fmt.Println("login env not passed.")
-	} else {
-		fmt.Println(login)
 	}
-	flag.StringVar(&login, "u", "", "GitHub ID")
+	pat, existed = os.LookupEnv("pat")
+	if !existed {
+		fmt.Println("pat env not passed.")
+	}
+	readme, existed = os.LookupEnv("readme")
+	if !existed {
+		fmt.Println("readme env not passed.")
+	}
+
+	/*flag.StringVar(&login, "u", "", "GitHub ID")
 	flag.StringVar(&pat, "p", "", "Personal Access Token")
 	flag.StringVar(&readme, "f", "", "ReadMe file")
-	flag.Parse()
-	//a
+	flag.Parse()*/
 	fArr := FollowerArr{}
 
 	client := &http.Client{}
