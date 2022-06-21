@@ -1,5 +1,5 @@
 # github-followers
-This project allows you to display your followers in a specific order
+This project allows you to display your followers in a specific order.
 
 <!--START_SECTION:top-followers-->
 <table>
