@@ -11,6 +11,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"sort"
 	"strconv"
 	"text/template"
@@ -92,6 +93,13 @@ func main() {
 	var pat string
 	var readme string
 	var followersCount int64
+
+	login, existed := os.LookupEnv("LOGIN")
+	if !existed {
+		fmt.Println("login env not passed.")
+	} else {
+		fmt.Println(login)
+	}
 	flag.StringVar(&login, "u", "", "GitHub ID")
 	flag.StringVar(&pat, "p", "", "Personal Access Token")
 	flag.StringVar(&readme, "f", "", "ReadMe file")
