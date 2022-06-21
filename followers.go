@@ -11,7 +11,6 @@ import (
 	"log"
 	"net/http"
 	"os"
-	"path/filepath"
 	"sort"
 	"strconv"
 	"text/template"
@@ -237,10 +236,11 @@ func main() {
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
 
-	pwd, _ := os.Getwd()
+	//pwd, _ := os.Getwd()
+	os.Chmod("/github/workspace/", 0777)
 
 	//获取当前目录下的所有文件或目录信息
-	filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
+	/*filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
 		fmt.Println(path)        //打印path信息
 		fmt.Println(info.Name()) //打印文件或目录名
 		return nil
@@ -250,6 +250,6 @@ func main() {
 	err = ioutil.WriteFile(readme, []byte(str), 0666)
 	if err != nil {
 		log.Fatal(err)
-	}
+	}*/
 	//fmt.Println(str)
 }
