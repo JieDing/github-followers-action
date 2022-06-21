@@ -235,9 +235,10 @@ func main() {
 	}
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
+	fmt.Println(str)
 	err = ioutil.WriteFile(readme, []byte(str), 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println(str)
+	//fmt.Println(str)
 }
