@@ -7,6 +7,6 @@ jobs:
     steps:
       - name: use github-follower
         id: hello
-        uses: actions/github-followers@v0.0.1
+        uses: JieDing/github-followers@v0.0.1
         with:
           login: 'JieDing'
