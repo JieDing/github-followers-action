@@ -5,9 +5,19 @@ inputs:
   login:  # id of login
     description: 'Who to greet'
     required: true
-    default: 'none'
+    default: 'login'
+  pat: # id of pat
+    description: 'Who to greet'
+    required: true
+    default: 'pat'
+  readme: # id of readme
+    description: 'Who to greet'
+    required: true
+    default: 'readme'
 runs:
   using: 'docker'
   image: 'Dockerfile'
   args:
     - ${{ inputs.login }}
+    - ${{ inputs.pat }}
+    - ${{ inputs.readme }}
