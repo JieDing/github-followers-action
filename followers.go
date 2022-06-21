@@ -102,7 +102,7 @@ func main() {
 	client := &http.Client{}
 	url := "https://api.github.com/graphql"
 
-	tpl, err := template.ParseFS(fs, "templates/followers.ql")
+	tpl, err := template.ParseFS(fs, "templates/followers.tpl")
 	htmlTPL, err := template.ParseFS(fs, "templates/table.tpl")
 	if err != nil {
 		log.Fatal(err)
