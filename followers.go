@@ -224,8 +224,13 @@ func main() {
 	html += "  </tr>\n</table>"
 	//fmt.Println(html)
 	arr, err := ioutil.ReadFile(readme)
-	//str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
+	if err != nil {
+		log.Fatal(err)
+	}
 	str := string(arr)
+	fmt.Println(str)
+	//str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
+
 	reg, err := regexp2.Compile("(?<=<!--START_SECTION:top-followers-->)[\\s\\S]*(?=<!--END_SECTION:top-followers-->)", 0)
 	if err != nil {
 		log.Fatal(err)
@@ -233,5 +238,5 @@ func main() {
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
 	ioutil.WriteFile(readme, []byte(str), 0666)
-	fmt.Println(str)
+	//fmt.Println(str)
 }
