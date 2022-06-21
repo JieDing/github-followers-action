@@ -8,5 +8,5 @@ jobs:
       - name: use github-follower
         id: hello
         uses: JieDing/github-followers@main
-        with:
+        env:
           login: 'JieDing'
