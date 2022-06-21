@@ -93,7 +93,7 @@ func main() {
 	var pat string
 	var readme string
 	var followersCount int64
-
+	fmt.Println("!!!!!!!!!!!!!!!!!!!!!!")
 	login, existed := os.LookupEnv("login")
 	if !existed {
 		fmt.Println("login env not passed.")
