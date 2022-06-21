@@ -1,0 +1,12 @@
+on: [push]
+
+jobs:
+  hello_world_job:
+    runs-on: ubuntu-latest
+    name: A job to test github-follower
+    steps:
+      - name: use github-follower
+        id: hello
+        uses: actions/github-followers@main
+        with:
+          login: 'JieDing'
