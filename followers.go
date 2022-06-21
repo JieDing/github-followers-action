@@ -235,6 +235,18 @@ func main() {
 	}
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
+
+	pwd, _ := os.Getwd()
+	//获取文件或目录相关信息
+	fileInfoList, err := ioutil.ReadDir(pwd)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(len(fileInfoList))
+	for i := range fileInfoList {
+		fmt.Println(fileInfoList[i].Name()) //打印当前文件或目录下的文件或目录名
+	}
+
 	fmt.Println(str)
 	err = ioutil.WriteFile(readme, []byte(str), 0666)
 	if err != nil {
