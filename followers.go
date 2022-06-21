@@ -103,8 +103,6 @@ func main() {
 	readme, existed = os.LookupEnv("readme")
 	if !existed {
 		fmt.Println("readme env not passed.")
-	} else {
-		fmt.Println(readme)
 	}
 
 	/*flag.StringVar(&login, "u", "", "GitHub ID")
@@ -137,7 +135,7 @@ func main() {
 			Query: b.String(),
 		}
 		byteArr, err := json.Marshal(&ql)
-		fmt.Println(string(byteArr))
+		//fmt.Println(string(byteArr))
 		if err != nil {
 			log.Fatal(err)
 		}
@@ -228,7 +226,7 @@ func main() {
 		log.Fatal(err)
 	}
 	str := string(arr)
-	fmt.Println(str)
+	//fmt.Println(str)
 	//str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
 
 	reg, err := regexp2.Compile("(?<=<!--START_SECTION:top-followers-->)[\\s\\S]*(?=<!--END_SECTION:top-followers-->)", 0)
@@ -237,6 +235,9 @@ func main() {
 	}
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
-	ioutil.WriteFile(readme, []byte(str), 0666)
-	//fmt.Println(str)
+	err = ioutil.WriteFile(readme, []byte(str), 0666)
+	if err != nil {
+		log.Fatal(err)
+	}
+	fmt.Println(str)
 }
