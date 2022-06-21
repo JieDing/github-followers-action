@@ -244,12 +244,12 @@ func main() {
 		fmt.Println(path)        //打印path信息
 		fmt.Println(info.Name()) //打印文件或目录名
 		return nil
-	})
+	})*/
 
 	fmt.Println(str)
 	err = ioutil.WriteFile(readme, []byte(str), 0666)
 	if err != nil {
 		log.Fatal(err)
-	}*/
+	}
 	//fmt.Println(str)
 }
