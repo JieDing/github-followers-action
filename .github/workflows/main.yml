@@ -5,6 +5,11 @@ jobs:
     runs-on: ubuntu-latest
     name: A job to test github-follower
     steps:
+      - uses: actions/checkout@v3
+
+      - name: list files
+        run: ls;
+
       - name: use github-follower
         id: hello
         uses: JieDing/github-followers@main
