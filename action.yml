@@ -1,0 +1,13 @@
+# action.yml
+name: 'GitHub Followers'
+description: 'Greet someone and record the time'
+inputs:
+  login:  # id of login
+    description: 'Who to greet'
+    required: true
+    default: 'none'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.login }}
