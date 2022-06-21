@@ -103,6 +103,8 @@ func main() {
 	readme, existed = os.LookupEnv("readme")
 	if !existed {
 		fmt.Println("readme env not passed.")
+	} else {
+		fmt.Println(readme)
 	}
 
 	/*flag.StringVar(&login, "u", "", "GitHub ID")
@@ -135,7 +137,7 @@ func main() {
 			Query: b.String(),
 		}
 		byteArr, err := json.Marshal(&ql)
-		//fmt.Println(string(byteArr))
+		fmt.Println(string(byteArr))
 		if err != nil {
 			log.Fatal(err)
 		}
