@@ -103,12 +103,9 @@ func main() {
 	readme, existed = os.LookupEnv("readme")
 	if !existed {
 		fmt.Println("readme env not passed.")
+		readme = "README.md"
 	}
 
-	/*flag.StringVar(&login, "u", "", "GitHub ID")
-	flag.StringVar(&pat, "p", "", "Personal Access Token")
-	flag.StringVar(&readme, "f", "", "ReadMe file")
-	flag.Parse()*/
 	fArr := FollowerArr{}
 
 	client := &http.Client{}
