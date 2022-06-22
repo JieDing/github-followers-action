@@ -250,6 +250,13 @@ func main() {
 	} else {
 		fmt.Println(info.Mode())
 	}
+	os.Chmod("README.md", 0777)
+	info, err = os.Stat("README.md")
+	if err != nil {
+		log.Fatal(err)
+	} else {
+		fmt.Println(info.Mode())
+	}
 	//获取当前目录下的所有文件或目录信息
 	/*filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
 		fmt.Println(path)        //打印path信息
