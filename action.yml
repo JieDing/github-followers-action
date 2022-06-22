@@ -4,7 +4,7 @@ description: 'This action will display your Top 18 followers (based on a sorting
 author: 'Jie Ding <me@jieding.io>'
 inputs:
   login:  # your login id
-    description: 'use ${{ github.repository_owner }} to easily get your login id'
+    description: 'your login id'
     required: true
     default: 'login'
   pat: # your PAT
