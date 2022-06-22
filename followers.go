@@ -240,10 +240,14 @@ func main() {
 	os.Chmod("/github/workspace", 0777)
 	info, err := os.Stat("/github/workspace")
 	if err != nil {
+		log.Fatal(err)
+	} else {
 		fmt.Println(info)
 	}
 	info, err = os.Stat("README.md")
 	if err != nil {
+		log.Fatal(err)
+	} else {
 		fmt.Println(info)
 	}
 	//获取当前目录下的所有文件或目录信息
@@ -253,7 +257,7 @@ func main() {
 		return nil
 	})*/
 
-	fmt.Println(str)
+	//fmt.Println(str)
 	err = ioutil.WriteFile(readme, []byte(str), 0777)
 	if err != nil {
 		log.Fatal(err)
