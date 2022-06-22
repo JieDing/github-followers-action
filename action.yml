@@ -1,22 +1,23 @@
 # action.yml
-name: 'GitHub Followers'
-description: 'Greet someone and record the time'
+name: 'Display GitHub Followers'
+description: 'This action will display your Top 18 followers (based on a sorting rule including followers number, repo quality, contributions, etc) in your README.md.'
+author: 'Jie Ding <me@jieding.io>'
 inputs:
-  login:  # id of login
-    description: 'Who to greet'
+  login:  # your login id
+    description: 'use ${{ github.repository_owner }} to easily get your login id'
     required: true
     default: 'login'
-  pat: # id of pat
-    description: 'Who to greet'
+  pat: # your PAT
+    description: 'Your PAT'
     required: true
     default: 'pat'
-  readme: # id of readme
+  readme: # the file followers information should be sent to
     description: 'Who to greet'
     required: false
     default: 'README.md'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/jieding/github-followers:main'
+  image: 'docker://ghcr.io/jieding/github-followers:v1.0.0'
   args:
     - ${{ inputs.login }}
     - ${{ inputs.pat }}
