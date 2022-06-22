@@ -13,7 +13,7 @@ inputs:
   readme: # id of readme
     description: 'Who to greet'
     required: true
-    default: 'readme'
+    default: 'README.md'
 runs:
   using: 'docker'
   image: 'Dockerfile'

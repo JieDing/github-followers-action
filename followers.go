@@ -236,39 +236,7 @@ func main() {
 
 	str, err = reg.Replace(str, "\n"+html+"\n", 10, 1)
 
-	//pwd, _ := os.Getwd()
-	os.Chmod("/github/workspace", 0777)
-	info, err := os.Stat("/github/workspace")
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		fmt.Println(info.Mode())
-	}
-	info, err = os.Stat("README.md")
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		fmt.Println(info.Mode())
-	}
-	err = os.Chmod("README.md", 0777)
-	if err != nil {
-		log.Fatal(err)
-	}
-	info, err = os.Stat("README.md")
-	if err != nil {
-		log.Fatal(err)
-	} else {
-		fmt.Println(info.Mode())
-	}
-	//获取当前目录下的所有文件或目录信息
-	/*filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
-		fmt.Println(path)        //打印path信息
-		fmt.Println(info.Name()) //打印文件或目录名
-		return nil
-	})*/
-
-	//fmt.Println(str)
-	err = ioutil.WriteFile(readme, []byte(str), 0777)
+	err = ioutil.WriteFile(readme, []byte(str), 0666)
 	if err != nil {
 		log.Fatal(err)
 	}
