@@ -22,6 +22,5 @@ FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /workspace/entrypoint .
 COPY --from=builder /workspace/templates/ .
-USER 65532:65532
 
 ENTRYPOINT ["/entrypoint"]
