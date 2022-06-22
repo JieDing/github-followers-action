@@ -242,13 +242,13 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		fmt.Println(info)
+		fmt.Println(info.Mode())
 	}
 	info, err = os.Stat("README.md")
 	if err != nil {
 		log.Fatal(err)
 	} else {
-		fmt.Println(info)
+		fmt.Println(info.Mode())
 	}
 	//获取当前目录下的所有文件或目录信息
 	/*filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
