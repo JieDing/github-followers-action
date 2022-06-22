@@ -238,7 +238,14 @@ func main() {
 
 	//pwd, _ := os.Getwd()
 	os.Chmod("/github/workspace", 0777)
-
+	info, err := os.Stat("/github/workspace")
+	if err != nil {
+		fmt.Println(info)
+	}
+	info, err = os.Stat("README.md")
+	if err != nil {
+		fmt.Println(info)
+	}
 	//获取当前目录下的所有文件或目录信息
 	/*filepath.Walk(pwd, func(path string, info os.FileInfo, err error) error {
 		fmt.Println(path)        //打印path信息
