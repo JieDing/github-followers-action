@@ -250,7 +250,10 @@ func main() {
 	} else {
 		fmt.Println(info.Mode())
 	}
-	os.Chmod("README.md", 0777)
+	err = os.Chmod("README.md", 0777)
+	if err != nil {
+		log.Fatal(err)
+	}
 	info, err = os.Stat("README.md")
 	if err != nil {
 		log.Fatal(err)
