@@ -8,16 +8,16 @@
 </h1>
 <p align="center">
 
-  <a href="https://github.com/JamesIves/github-pages-deploy-action/actions">
+  <a href="https://github.com/JieDing/github-followers-action/blob/main/LICENSE">
     <img src="https://img.shields.io/badge/License-Apache_2.0-green.svg" alt="License">
-  </a>
+  </a>  
 
   <a href="https://golang.org/">
     <img src="https://img.shields.io/badge/Language-Go-blue.svg" alt="Language">
   </a>
 
-  <a href="https://codecov.io/gh/JamesIves/github-pages-deploy-action/branch/dev">
-    <img src="https://codecov.io/gh/JamesIves/github-pages-deploy-action/branch/dev/graph/badge.svg" alt="Code coverage status badge">
+  <a href="https://codecov.io/gh/JieDing/github-followers-action/branch/main">
+    <img src="https://codecov.io/gh/JieDing/github-followers-action/branch/main/graph/badge.svg" alt="Code coverage status badge">
   </a>
 
   <a href="https://github.com/JamesIves/github-pages-deploy-action/releases">

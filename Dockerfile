@@ -3,15 +3,15 @@ FROM golang:1.17 as builder
 
 WORKDIR /workspace
 # Copy the Go Modules manifests
-COPY go.mod go.mod
-COPY go.sum go.sum
+COPY pkg/go.mod go.mod
+COPY pkg/go.sum go.sum
 # cache deps before building and copying source so that we don't need to re-download as much
 # and so that source changes don't invalidate our downloaded layer
 RUN go mod download
 
 # Copy the go source
-COPY followers.go followers.go
-COPY templates/ templates/
+COPY pkg/followers.go followers.go
+COPY pkg/templates/ templates/
 
 # Build
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build -a -o entrypoint followers.go
