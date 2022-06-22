@@ -17,7 +17,7 @@ inputs:
     default: 'README.md'
 runs:
   using: 'docker'
-  image: 'docker://ghcr.io/jieding/github-followers:v1.0.0'
+  image: 'docker://ghcr.io/jieding/github-followers-action:v1.0.0'
   args:
     - ${{ inputs.login }}
     - ${{ inputs.pat }}
