@@ -26,6 +26,13 @@ This project allows you to display your followers in a specific order.
         <a href="https://github.com/wangwei538">wangwei538</a>
     </td>
     <td align="center">
+        <a href="https://github.com/VedaGao">
+            <img src="https://avatars2.githubusercontent.com/u/103040022" width="100px;" alt="VedaGao"/>
+        </a>
+        <br />
+        <a href="https://github.com/VedaGao">VedaGao</a>
+    </td>
+    <td align="center">
         <a href="https://github.com/Jesministrator">
             <img src="https://avatars2.githubusercontent.com/u/33193104" width="100px;" alt="Jesministrator"/>
         </a>
