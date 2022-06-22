@@ -12,7 +12,7 @@ inputs:
     default: 'pat'
   readme: # id of readme
     description: 'Who to greet'
-    required: true
+    required: false
     default: 'README.md'
 runs:
   using: 'docker'
