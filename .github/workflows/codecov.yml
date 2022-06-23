@@ -27,6 +27,7 @@ jobs:
       - name: Generate coverage report
         timeout-minutes: 2
         run: |
+          ls
           cd github-followers-action/pkg && go test -failfast -race -coverprofile=coverage.txt -covermode=atomic -timeout 10s
       - uses: codecov/codecov-action@v2
         with:
