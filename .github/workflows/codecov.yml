@@ -33,7 +33,7 @@ jobs:
           ls
       - uses: codecov/codecov-action@v2
         with:
-          working-directory: pkg
+          working-directory: pkg/pkg
           files: ./coverage.txt # optional
           name: codecov-umbrella # optional
           fail_ci_if_error: true # optional (default = false)
