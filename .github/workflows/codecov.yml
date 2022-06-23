@@ -1,0 +1,37 @@
+name: codecov
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'pkg/**'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'pkg/**'
+permissions:
+  contents: read
+  # Optional: allow read access to pull request. Use with `only-new-issues` option.
+  # pull-requests: read-
+jobs:
+  codecov:
+    name: codecov
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/setup-go@v2
+      - name: checkout-src
+        uses: actions/checkout@v3
+        with:
+          path: pkg
+      - name: Generate coverage report
+        timeout-minutes: 2
+        run: |
+          cd github-followers-action/pkg && go test -failfast -race -coverprofile=coverage.txt -covermode=atomic -timeout 10s
+      - uses: codecov/codecov-action@v2
+        with:
+          working-directory: pkg
+          files: ./coverage.txt # optional
+          name: codecov-umbrella # optional
+          fail_ci_if_error: true # optional (default = false)
+          verbose: true # optional (default = false)
