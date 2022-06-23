@@ -19,7 +19,7 @@
   <a href="https://codecov.io/gh/JieDing/github-followers-action/branch/main">
     <img src="https://codecov.io/gh/JieDing/github-followers-action/branch/main/graph/badge.svg" alt="Code coverage status badge">
   </a>
-
+<!--
   <a href="https://github.com/JamesIves/github-pages-deploy-action/releases">
     <img src="https://img.shields.io/github/v/release/JamesIves/github-pages-deploy-action.svg?logo=github" alt="Release version badge">
   </a>
@@ -27,5 +27,6 @@
   <a href="https://github.com/marketplace/actions/deploy-to-github-pages">
     <img src="https://img.shields.io/badge/action-marketplace-blue.svg?logo=github&color=orange" alt="Github marketplace badge">
   </a>
+-->
 </p>
 
