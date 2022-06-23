@@ -30,3 +30,9 @@
 -->
 </p>
 
+<p align="center">
+  Do you want to show your followers in your GitHub profile? Do you want to know which of your followers are more active or have a better influence?
+This github-followers-action ranks your followers from multiple respective(number of their followers, credits of their repos, number of their contributions and number of people they're following).
+It also automatically represents these top followers in your GitHub profile as a <a href="https://github.com/features/actions">GitHub action</a>.
+This action is inspired by <a href="https://github.com/ouuan/ouuan">ouuan's Profile</a>.
+</p>
