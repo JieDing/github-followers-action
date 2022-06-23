@@ -28,9 +28,7 @@ jobs:
         timeout-minutes: 2
         run: |
           cd pkg/pkg
-          ls
           go test -failfast -race -coverprofile=coverage.txt -covermode=atomic -timeout 10s
-          ls
       - uses: codecov/codecov-action@v2
         with:
           working-directory: pkg/pkg
