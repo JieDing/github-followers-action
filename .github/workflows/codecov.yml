@@ -27,7 +27,7 @@ jobs:
       - name: Generate coverage report
         timeout-minutes: 2
         run: |
-          cd pkg
+          cd pkg/pkg
           ls
           go test -failfast -race -coverprofile=coverage.txt -covermode=atomic -timeout 10s
       - uses: codecov/codecov-action@v2

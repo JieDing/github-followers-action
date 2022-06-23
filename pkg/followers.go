@@ -19,7 +19,7 @@ import (
 //go:embed templates
 var fs embed.FS
 
-//QLaaa
+//QLaaaa
 type QL struct {
 	Query string `json:"query"`
 }
