@@ -32,7 +32,35 @@
 
 <p align="center">
   Do you want to show your followers in your GitHub profile? Do you want to know which of your followers are more active or have a better influence?
-This github-followers-action ranks your followers from multiple respective(number of their followers, credits of their repos, number of their contributions and number of people they're following).
-It also automatically represents these top followers in your GitHub profile as a <a href="https://github.com/features/actions">GitHub action</a>.
+This github-followers-action ranks your followers according to different criteria(number of their followers, credits of their repos, number of their contributions and number of people they're following). 
+It also renders those data into HTML elements so that those ranked followers can be easily displayed in your GitHub profile.
 This action is inspired by <a href="https://github.com/ouuan/ouuan">ouuan's Profile</a>.
 </p>
+
+## Getting Started 🚀
+
+### Set up Your Profile Repo
+
+Create a Repository, and name it as your username. See my example [here][JieDing].
+
+${Username}/${Username} is a special repository since its README.md will appear on your public profile.
+
+### Set Start and End Flags
+
+Once created your profile, you can add whatever you want into the README.md.
+
+The only thing you need to do is to add following flags to your README.md, so that this action can know where your ranked followers should be placed at.
+
+```html
+Hi there 👋
+
+This is JieDing. Those two lines below are flags the action need to place generated elements.
+
+<!--ACTION_START_FLAG:github-followers-->
+<!--ACTION_END_FLAG:github-followers-->
+```
+
+As a GitHub action, `gitHub-followers-action` can be triggered on any event that [GitHub actions supports][gas].
+
+[gas]: https://help.github.com/en/articles/events-that-trigger-workflows
+[JieDing]: https://github.com/JieDing/JieDing
