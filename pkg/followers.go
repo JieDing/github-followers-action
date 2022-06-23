@@ -227,7 +227,7 @@ func main() {
 	//fmt.Println(str)
 	//str := "aaa<!--START_SECTION:top-followers-->hhh<!--END_SECTION:top-followers-->aaa"
 
-	reg, err := regexp2.Compile("(?<=<!--START_SECTION:top-followers-->)[\\s\\S]*(?=<!--END_SECTION:top-followers-->)", 0)
+	reg, err := regexp2.Compile("(?<=<!--ACTION_START_FLAG:github-followers-->)[\\s\\S]*(?=<!--ACTION_END_FLAG:github-followers-->)", 0)
 	if err != nil {
 		log.Fatal(err)
 	}
