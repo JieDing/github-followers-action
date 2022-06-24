@@ -99,7 +99,7 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: use github-follower
+      - name: use github-follower-action to update README.md
         id: github-follower
         uses: JieDing/github-followers@main
         env:
@@ -119,6 +119,12 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           branch: ${{ github.ref }}
 ```
+
+The workflow above basically did three things:
+
+1. Use `checkout` action to enable your workflow to access your `Username/Username` repository.
+2. Use `github-followers` action to select top followers and render their information into HTML elements, finally write these elements into your README.md.
+3. Use git-related actions to commit changes, and enable `actions-user` to automatically push changed README.md to you profile repository.
 
 ### Configuration
 
