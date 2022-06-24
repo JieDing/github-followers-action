@@ -51,10 +51,28 @@ Once created your profile, you can add whatever you want into the README.md.
 
 The only thing you need to do is to add following flags to your README.md, so that this action can know where your ranked followers should be placed at.
 
+The start and end flag:
+```html
+<!--ACTION_START_FLAG:github-followers-->
+<!--ACTION_END_FLAG:github-followers-->
+```
+
+An example of README.md (before adding flags):
 ```html
 Hi there 👋
 
-This is JieDing. Those two lines below are flags the action need to place generated elements.
+This is JieDing. 
+
+Here are some fun facts: ......
+```
+
+After adding two flags:
+```html
+Hi there 👋
+
+This is JieDing. 
+
+Here are some fun facts: ......
 
 <!--ACTION_START_FLAG:github-followers-->
 <!--ACTION_END_FLAG:github-followers-->
