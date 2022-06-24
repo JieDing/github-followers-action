@@ -80,9 +80,48 @@ Here are some fun facts: ......
 
 ### Build Your Workflow
 
-Create the directory `.github/workflows` in the `Username/Username` repo.
+Create the directory `.github/workflows` in the `Username/Username` repository.
 
-As a GitHub action, `gitHub-followers-action` can be triggered on any event that [GitHub actions supports][gas].
+Add the following example to `.github/workflows` directory.
 
-[gas]: https://help.github.com/en/articles/events-that-trigger-workflows
+`github-followers.yml`
+```yaml
+on:
+  push:
+    branches:
+      - main
+  schedule:
+    - cron: '0 20 * * *'
+jobs:
+  github_followers_job:
+    runs-on: ubuntu-latest
+    name: A job to display github followers in your profile
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: use github-follower
+        id: github-follower
+        uses: JieDing/github-followers@main
+        env:
+          login: ${{ github.repository_owner }}
+          pat: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+      - name: Commit changes
+        run: |
+            git config --local user.email "action@github.com"
+            git config --local user.name "GitHub Action"
+            git add -A
+            git diff-index --quiet HEAD || git commit -m "Update GitHub followers"
+      - name: Pull changes
+        run: git pull -r
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
+```
+
+### Configuration
+
+
+
 [JieDing]: https://github.com/JieDing/JieDing
