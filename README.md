@@ -43,7 +43,7 @@ This action is inspired by <a href="https://github.com/ouuan/ouuan">ouuan's Prof
 
 Create a Repository, and name it as your username. See my example [here][JieDing].
 
-${Username}/${Username} is a special repository since its README.md will appear on your public profile.
+`Username`/`Username` is a special repository since its README.md will appear on your public profile.
 
 ### Set Start and End Flags
 
