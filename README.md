@@ -43,7 +43,7 @@ This action is inspired by <a href="https://github.com/ouuan/ouuan">ouuan's Prof
 
 Create a Repository, and name it as your username. See my example [here][JieDing].
 
-`Username`/`Username` is a special repository since its README.md will appear on your public profile.
+`Username/Username` is a special repository since its README.md will appear on your public profile.
 
 ### Set Start and End Flags
 
@@ -77,6 +77,10 @@ Here are some fun facts: ......
 <!--ACTION_START_FLAG:github-followers-->
 <!--ACTION_END_FLAG:github-followers-->
 ```
+
+### Build Your Workflow
+
+Create the directory `.github/workflows` in the `Username/Username` repo.
 
 As a GitHub action, `gitHub-followers-action` can be triggered on any event that [GitHub actions supports][gas].
 
