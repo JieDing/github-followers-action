@@ -139,7 +139,7 @@ The following variables must be configured in order to make `github-followers` a
 
 ### Set Your PAT
 
-You can create a PAT by this step-by-step [instruction].
+You can create a PAT by following this step-by-step [instruction].
 
 When you select the scopes, or permissions, you'd like to grant this token, make sure following scopes are enabled:
 
@@ -155,6 +155,13 @@ user
 read:gpg_key
 ```
 
+### Create an Encrypted Secret for Your Repository
+
+Create an encrypted secret, which holds PERSONAL_ACCESS_TOKEN as the key and the PAT you just created as the value.
+
+Check out the [instruction][secret] about how to create encrypted secrets for a repository.
+
 [secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets
 [JieDing]: https://github.com/JieDing/JieDing
 [instruction]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
+[secret]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository
