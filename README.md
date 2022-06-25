@@ -134,9 +134,27 @@ The following variables must be configured in order to make `github-followers` a
 
 | Key   | Required | Value Description                                                                                                              |
 |:------|:---------|:-------------------------------------------------------------------------------------------------------------------------------|
-| login | true     | Your login ID. you can use ${{ github.repository_owner }}  to get your login ID here                                           |
-| pat   | true     | Your Personal Access Token(PAT). In order to obtain your followers' information by GraphQL query, you have to set a valid PAT  |
+| login | true     | Your login ID. You can use ${{ github.repository_owner }}  to get your login ID here.                                          |
+| pat   | true     | Your Personal Access Token(PAT). In order to obtain your followers' information by GraphQL query, you have to set a valid PAT. |
 
+### Set Your PAT
+
+You can create a PAT by this step-by-step [instruction].
+
+When you select the scopes, or permissions, you'd like to grant this token, make sure following scopes are enabled:
+
+```
+repo
+repo:status
+repo_deployment
+public_repo
+read:org
+read:public_key
+read:repo_hook
+user
+read:gpg_key
+```
 
 [secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets
 [JieDing]: https://github.com/JieDing/JieDing
+[instruction]: https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
