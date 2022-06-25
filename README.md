@@ -132,10 +132,10 @@ You may have noticed that the workflow requires some variables to work.
 
 The following variables must be configured in order to make `github-followers` action work.
 
-| Key   | Required | Value Description                                                                                                                 |
-|:------|:---------|:----------------------------------------------------------------------------------------------------------------------------------|
-| login | true     | Your login ID. you can use ${{ github.repository_owner }}  to get your login ID here                                              |
-| pat   | true     | Your Personal Access Token(PAT). In order to obtain your followers' information by GraphQL query, you have to set a valid PAT and |
+| Key   | Required | Value Description                                                                                                              |
+|:------|:---------|:-------------------------------------------------------------------------------------------------------------------------------|
+| login | true     | Your login ID. you can use ${{ github.repository_owner }}  to get your login ID here                                           |
+| pat   | true     | Your Personal Access Token(PAT). In order to obtain your followers' information by GraphQL query, you have to set a valid PAT  |
 
 
 [secrets]: https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets
