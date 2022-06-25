@@ -1,6 +1,6 @@
 # action.yml
 name: 'Display GitHub Followers'
-description: 'A GitHub Action ranks your followers according to different criteria(number of their followers, credits of their repos, number of their contributions and number of people they are following). It also renders those data into HTML elements so that those ranked followers can be easily displayed in your GitHub profile.'
+description: 'A GitHub Action ranks your followers and renders those data into HTML elements so that those ranked followers can be easily displayed in your GitHub profile.'
 author: 'Jie Ding <me@jieding.io>'
 inputs:
   login:  # your login id
