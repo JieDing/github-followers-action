@@ -126,7 +126,7 @@ The workflow above basically did three things:
 2. Use `github-followers` action to select top followers and render their information into HTML elements, finally write these elements into your README.md.
 3. Use git-related actions to commit changes, and enable `actions-user` to automatically push changed README.md to you profile repository.
 
-> ⚠️ **NOTE:** You don't need to create variables like ${{ github.ref }}, ${{ github.repository_owner }} or ${{ secrets.GITHUB_TOKEN }}, used in the above example.
+> ⚠️ **NOTE:** You don't need to create variables like github.ref, github.repository_owner or secrets.GITHUB_TOKEN, used in the above example.
 
 > ⚠️ **NOTE:** But you need to create a secret called PERSONAL_ACCESS_TOKEN in your repository. See [Set your PAT](#set-your-pat) and [Create an Encrypted Secret](#create-an-encrypted-secret-for-your-repository) for details.
 
