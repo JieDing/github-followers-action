@@ -2,6 +2,9 @@
 name: 'Display GitHub Followers'
 description: 'A GitHub Action ranks your followers and renders those data into your GitHub-README.md.'
 author: 'Jie Ding <me@jieding.io>'
+branding:
+  icon: 'users'
+  color: 'orange'
 inputs:
   login:  # your login id
     description: 'your login id'
