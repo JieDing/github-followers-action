@@ -49,7 +49,7 @@ Create a Repository, and name it as your username. See my example [here][JieDing
 
 Once created your profile, you can add whatever you want into the README.md.
 
-The only thing you need to do is to add following flags to your README.md, so that this action can know where your ranked followers should be placed at.
+The only thing you need to do is to add following flags to your README.md, so the action knows where to place your ranked followers.
 
 The start and end flag:
 ```html
