@@ -218,7 +218,7 @@ func main() {
 		//fmt.Println(bf.String())
 	}
 	html += "  </tr>\n</table>"
-	//fmt.Println(html)
+	fmt.Println(html)
 	arr, err := ioutil.ReadFile(readme)
 	if err != nil {
 		log.Fatal(err)
